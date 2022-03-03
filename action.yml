@@ -1,0 +1,31 @@
+name: "gfg-microservice-deploy"
+description: "Deploy GFG Microservice"
+inputs:
+  token:
+    description: Github token for downloading the repository
+    required: true
+  name:
+    description: Service name
+    required: true
+  venture:
+    description: Venture
+    required: true
+  environment:
+    description: Environment (staging/preprod/live)
+    required: true
+  flavor:
+    description: Deploy flavor (service, classic)
+    required: false
+    default: "service"
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: "true"
+        token: ${{ inputs.token }}
+    - uses: azure/setup-helm@v1
+    - uses: unfor19/install-aws-cli-action@v1
+    - uses: prepor/action-aws-iam-authenticator@master
+    - run: ${{ github.action_path }}/deploy-${{ inputs.flavor }}.sh "${{ inputs.name }}" "${GITHUB_SHA::7}" "${{ inputs.venture }}" "${{ inputs.environment }}"
+      shell: bash

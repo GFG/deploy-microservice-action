@@ -1,0 +1,27 @@
+{
+  "zalora2": {
+    "role": "arn:aws:iam::704749949618:role/EKSDescribeClusterRole",
+    "region": "ap-southeast-1",
+    "countries": "id my ph hk tw sg gsc"
+  },
+  "lamoda1": {
+    "role": "arn:aws:iam::840743931192:role/EKSDescribeClusterRole",
+    "region": "eu-central-1",
+    "countries": "kz ru ua"
+  },
+  "dafiti1": {
+    "role": "arn:aws:iam::745962336740:role/EKSDescribeClusterRole",
+    "region": "us-east-1",
+    "countries": "br"
+  },
+  "dafiti3": {
+    "role": "arn:aws:iam::324944604469:role/EKSDescribeClusterRole",
+    "region": "us-east-1",
+    "countries": "ar cl co"
+  },
+  "iconic2": {
+    "role": "arn:aws:iam::952309595981:role/EKSDescribeClusterRole",
+    "region": "ap-southeast-2",
+    "countries": "au"
+  }
+}
