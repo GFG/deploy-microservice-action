@@ -37,7 +37,7 @@ helm upgrade \
   --namespace $namespace \
   --create-namespace \
   ./chart \
-  --set venture=$venture,cluster=$shortcluster,environment=$env,imageTag=$tag > /tmp/deploy.log
+  --set venture=$venture,cluster=$shortcluster,environment=$env,imageTag=$github_sha > /tmp/deploy.log
 
 if [ $? -ne 0 ]; then
   echo "::error::Error when deploying $name on $cluster [$venture/$env]"
