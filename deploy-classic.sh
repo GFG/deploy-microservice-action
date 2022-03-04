@@ -13,7 +13,7 @@ source $SOURCE/get-cluster.sh
 
 set -e
 
-cluster=`get_classic_cluster $venture`
+cluster=`get_classic_cluster $venture $env`
 shortcluster=`get_cluster_shortname $venture`
 kubeconfig=`get_kubeconfig $venture $cluster`
 countries=`jq -r .$venture.countries $SOURCE/info.json`
