@@ -14,9 +14,12 @@ set -e
 
 cluster=`get_classic_cluster $venture $env`
 shortcluster=`get_cluster_shortname $venture`
-kubeconfig=`get_kubeconfig $venture $cluster`
-countries=`jq -r .$venture.countries $SOURCE/info.json`
 namespace=$name
+countries=`jq -r .$venture.countries $SOURCE/info.json`
+
+get_kubeconfig $venture $cluster
+
+kubeconfig=/tmp/kubeconfig-$cluster
 
 pushd $GITHUB_WORKSPACE > /dev/null
 

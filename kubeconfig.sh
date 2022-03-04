@@ -23,6 +23,4 @@ function get_kubeconfig() {
   unset AWS_SESSION_TOKEN
 
   rm /tmp/credentials.json
-
-  echo /tmp/kubeconfig-$cluster
 }

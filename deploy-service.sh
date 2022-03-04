@@ -15,9 +15,12 @@ set -e
 
 cluster=`get_service_cluster $venture`
 shortcluster=`get_cluster_shortname $venture`
-kubeconfig=`get_kubeconfig $venture $cluster`
 namespace=$name-$env
 value_file=$GITHUB_WORKSPACE/values/$env/$venture.yaml
+
+get_kubeconfig $venture $cluster
+
+kubeconfig=/tmp/kubeconfig-$cluster
 
 pushd $GITHUB_WORKSPACE > /dev/null
 
