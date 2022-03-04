@@ -13,7 +13,7 @@ function get_service_cluster() {
   esac
 }
 
-function get_standard_cluster() {
+function get_classic_cluster() {
   venture=$1
   env=$2
 
