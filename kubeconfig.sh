@@ -15,7 +15,7 @@ function get_kubeconfig() {
   export AWS_SECRET_ACCESS_KEY=`jq -r .Credentials.SecretAccessKey /tmp/credentials.json`
   export AWS_SESSION_TOKEN=`jq -r .Credentials.SessionToken /tmp/credentials.json`
 
-  aws eks update-kubeconfig --region $region --name sc-cluster-$cluster --role-arn=$role --kubeconfig /tmp/kubeconfig-$cluster
+  aws eks update-kubeconfig --region $region --name $cluster --role-arn=$role --kubeconfig /tmp/kubeconfig-$cluster
 
   unset AWS_ACCESS_KEY_ID
   unset AWS_SECRET_ACCESS_KEY
