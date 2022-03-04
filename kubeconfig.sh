@@ -7,6 +7,7 @@ function get_kubeconfig() {
   cluster=$2
 
   describe_role=`jq -r .$venture.role $SOURCE/info.json`
+  region=`jq -r .$venture.region $SOURCE/info.json`
   role=arn:aws:iam::514755528584:role/sc-codebuild-role
 
   aws sts assume-role --role-arn $describe_role --role-session-name deploy > /tmp/credentials.json
