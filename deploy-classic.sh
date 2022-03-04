@@ -11,6 +11,7 @@ source $SOURCE/kubeconfig.sh
 source $SOURCE/get-cluster.sh
 
 set -e
+set -x
 
 cluster=`get_classic_cluster $venture $env`
 shortcluster=`get_cluster_shortname $venture`
@@ -49,4 +50,4 @@ done
 
 popd > /dev/null
 set +e
-
+set +x

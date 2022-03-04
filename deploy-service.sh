@@ -12,6 +12,7 @@ source $SOURCE/kubeconfig.sh
 source $SOURCE/get-cluster.sh
 
 set -e
+set -x
 
 cluster=`get_service_cluster $venture`
 shortcluster=`get_cluster_shortname $venture`
@@ -37,7 +38,7 @@ helm upgrade \
   --namespace $namespace \
   --create-namespace \
   ./chart \
-  --set venture=$venture,cluster=$shortcluster,environment=$env,imageTag=$github_sha > /tmp/deploy.log
+  --set venture=$venture,cluster=$shortcluster,environment=$env,imageTag=$github_sha
 
 if [ $? -ne 0 ]; then
   echo "::error::Error when deploying $name on $cluster [$venture/$env]"
@@ -47,4 +48,4 @@ fi
 
 popd > /dev/null
 set +e
-
+set +x
