@@ -30,7 +30,7 @@ for country in $countries; do
       continue
     fi
 
-    helm upgrade \
+    echo helm upgrade \
       --install \
       --debug \
       --kubeconfig $kubeconfig \
