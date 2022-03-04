@@ -1,13 +1,15 @@
 #!/bin/bash
 
+SOURCE=`dirname ${BASH_SOURCE[0]}`
+
 name=$1
 github_sha=$2
 venture=$3
 env=$4
 flavor=$5
 
-source ./kubeconfig.sh
-source ./get-cluster.sh
+source $SOURCE/kubeconfig.sh
+source $SOURCE/get-cluster.sh
 
 set -e
 
