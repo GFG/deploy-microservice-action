@@ -12,7 +12,6 @@ source $SOURCE/kubeconfig.sh
 source $SOURCE/get-cluster.sh
 
 set -e
-set -x
 
 cluster=`get_service_cluster $venture`
 shortcluster=`get_cluster_shortname $venture`
@@ -27,7 +26,6 @@ if [[ ! -f "$value_file" ]]; then
   echo "::warning::Skipping deployment, value file doesn't exist"
   exit 0
 fi
-
 
 helm upgrade \
   --install \
@@ -48,4 +46,3 @@ fi
 
 popd > /dev/null
 set +e
-set +x
